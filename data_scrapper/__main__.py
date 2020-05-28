@@ -6,7 +6,7 @@ from .db_config import Session
 from .db_models import OhlcvdataModel
 from .db_config import engine
 
-coin_symbols = ["neo", "eos", "stellar", "tron", "cardano", "monero", "nem", "siacoin", "verge", "digibyte", "stratis", "reddcoin", "dash", "zcash", "tezos", "vechain"]
+coin_symbols = ["litecoin", "ethereum", "bitcoin", "monero", "siacoin", "verge", "digibyte", "reddcoin", "xrp", "tron", "ethereum-classic", "iota"]
 
 def tes_insert():
     print('Hello World')
@@ -42,12 +42,12 @@ def main():
         df[0] =  pd.to_datetime(df[0]) # date
         for i in range(1,7):
             df[i] = pd.to_numeric(df[i].str.replace(",","").str.replace("-","")) # some vol is missing and has -
-        df.columns = ['Date','Open','High','Low','Close','Volume','Market Cap']
+        df.columns = ['date','Open','High','Low','Close','Volume','Market Cap']
         # import pdb;pdb.set_trace()
         df.set_index('Date',inplace=True)
         df.sort_index(inplace=True)
         df.insert(loc=0, column='name', value=coin)
-        excel_name = f'/home/husky/coincapmarket/{coin}.xls'
+        excel_name = f'/Users/husky/coinmarketcap/{coin}.xls'
         export_excel = df.to_excel (excel_name, index = True, header=True)
         df.to_sql('ohlcvdata2', engine, if_exists='append')
 
