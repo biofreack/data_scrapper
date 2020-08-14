@@ -6,7 +6,8 @@ from .db_config import Session
 from .db_models import OhlcvdataModel
 from .db_config import engine
 
-coin_symbols = ["neo", "eos", "stellar", "tron", "cardano", "monero", "nem", "siacoin", "verge", "digibyte", "stratis", "reddcoin", "dash", "zcash", "tezos", "vechain"]
+#coin_symbols = ["neo", "eos", "stellar", "tron", "cardano", "monero", "nem", "siacoin", "verge", "digibyte", "stratis", "reddcoin", "dash", "zcash", "tezos", "vechain"]
+coin_symbols = ["bitcoin", "ethereum", "ethereum-classic", "iota", "ripple", "litecoin"]
 
 def tes_insert():
     print('Hello World')
